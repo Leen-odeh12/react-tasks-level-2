@@ -1,0 +1,12 @@
+import Usestate from "./Component/Usestate/Usestate";
+
+
+function App() {
+  return (
+    <div className="App">
+ <Usestate/>
+    </div>
+  );
+}
+
+export default App;
