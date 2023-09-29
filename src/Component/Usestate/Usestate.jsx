@@ -5,6 +5,7 @@ const Usestate = () => {
 
     const [name,setname]= useState("user-name")
     const [age,setage]= useState("0")
+   let [count,setcount]= useState("0")
 
     const change =()=>{
      setname("leen")
@@ -12,6 +13,10 @@ const Usestate = () => {
     const alter=()=>{
         setage(22)
        }
+
+     const increment =()=>{
+      setcount(count++)
+     }
   return (
     <div>
       
@@ -23,6 +28,11 @@ const Usestate = () => {
       <div className={style.two}>
         <h1> My age is {age}</h1>
         <button onClick={alter} className={style.btn}>change name </button>
+      </div>
+     {/* task-3> */}
+      <div className={style.three}>
+        <h1> My count is {count}</h1>
+        <button onClick={increment} className={style.btn}> add </button>
       </div>
     </div>
   )
