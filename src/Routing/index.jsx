@@ -5,6 +5,8 @@ import Home from '../Pages/Home'
 import Html from '../Pages/Html'
 import Css from '../Pages/Css'
 import Js from '../Pages/Js'
+import Signin from '../Pages/Signin'
+import Signup from '../Pages/Signup'
 
 
 const Routing= () => {
@@ -16,6 +18,8 @@ const Routing= () => {
               <Route path="/html" element={<Html/>}/> 
               <Route path="/css" element={<Css/>}/> 
               <Route path="/js" element={<Js/>}/> 
+              <Route path="/signin" element={<Signin/>}/> 
+              <Route path="/signup" element={<Signup/>}/> 
             </Route>
             
         </Routes>

@@ -17,7 +17,9 @@ const Header = () => {
         >
           Css
         </NavLink>
-        <NavLink to="/js">Js</NavLink>
+        <NavLink to="/js" >Js</NavLink>
+        <NavLink to="/signin" style={{paddingLeft: "20px", paddingRight: "20px"}}>signin</NavLink>
+        <NavLink to="/signup">signup</NavLink>
       </nav>
     </div>
   );
