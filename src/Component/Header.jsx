@@ -24,15 +24,21 @@ const Header = () => {
             Css
           </NavLink>
           <NavLink to="/js">Js</NavLink>
-          <NavLink  style={{paddingLeft:"20px"}} onClick={()=>{
-
-const auth = getAuth();
-signOut(auth).then(() => {
-  // Sign-out successful.
-}).catch((error) => {
-  // An error happened.
-});
-          }}>sign-out</NavLink>
+          <NavLink
+            style={{ paddingLeft: "20px" }}
+            onClick={() => {
+              const auth = getAuth();
+              signOut(auth)
+                .then(() => {
+                  // Sign-out successful.
+                })
+                .catch((error) => {
+                  // An error happened.
+                });
+            }}
+          >
+            sign-out
+          </NavLink>
         </div>
       )}
       <h1>web.dev</h1>
@@ -51,6 +57,7 @@ signOut(auth).then(() => {
             <NavLink
               to="/signin"
               style={{ paddingLeft: "20px", paddingRight: "20px" }}
+              
             >
               signin
             </NavLink>

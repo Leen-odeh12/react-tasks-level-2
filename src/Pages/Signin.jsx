@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+import { auth } from "../firebase/Config";
 
 const Signin = () => {
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+
   return (
     <div>
       <form
@@ -14,11 +20,23 @@ const Signin = () => {
           margin: "100px",
         }}
       >
-        <input type="text" style={{ padding: "10px" }} placeholder="username" required/>
-        <input required
+        <input
+          type="text"
+          style={{ padding: "10px" }}
+          placeholder="username"
+          required
+          onChange={(e) => {
+            setemail(e.target.value);
+          }}
+        />
+        <input
+          required
           type="password"
           style={{ padding: "10px", margin: "20px" }}
           placeholder="password"
+          onChange={(e) => {
+            setpassword(e.target.value);
+          }}
         />
         <button
           style={{
@@ -28,6 +46,20 @@ const Signin = () => {
             borderRadius: "6px",
             width: "200px",
             margin: "auto",
+          }}
+          onClick={(e) => {
+            e.preventDefault();
+            const auth = getAuth();
+            signInWithEmailAndPassword(auth, email, password)
+              .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                // ...
+              })
+              .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+              });
           }}
         >
           Login
