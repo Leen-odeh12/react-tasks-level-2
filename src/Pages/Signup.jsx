@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from "react-router-dom";
+import { auth } from '../firebase/Config';
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 
 const Signup = () => {
+  const [email,setemail]=useState("");
+  const[password,setpassword]=useState("");
   return (
     <div>
        <form
@@ -16,11 +20,16 @@ const Signup = () => {
         }}
       >
         <p>Create an account </p>
-        <input type="text" style={{ padding: "10px" }} placeholder="username" required/>
+        <input type="text" style={{ padding: "10px" }} placeholder="username" required onChange={(e)=>{
+          setemail(e.target.value);
+        }}/>
         <input required
           type="password"
           style={{ padding: "10px", margin: "20px" }}
           placeholder="password"
+          onChange={(e)=>{
+            setpassword(e.target.value);
+          }}
         />
         <button
           style={{
@@ -30,6 +39,20 @@ const Signup = () => {
             borderRadius: "6px",
             width: "200px",
             margin: "auto",
+          }}
+          onClick={(e)=>{
+            e.preventDefault();
+            createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
           }}
         >
           signin
