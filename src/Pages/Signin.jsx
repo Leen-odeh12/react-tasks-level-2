@@ -14,8 +14,8 @@ const Signin = () => {
           margin: "100px",
         }}
       >
-        <input type="text" style={{ padding: "10px" }} placeholder="username" />
-        <input
+        <input type="text" style={{ padding: "10px" }} placeholder="username" required/>
+        <input required
           type="password"
           style={{ padding: "10px", margin: "20px" }}
           placeholder="password"
