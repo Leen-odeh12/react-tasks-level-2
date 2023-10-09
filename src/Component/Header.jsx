@@ -1,70 +1,45 @@
 import { NavLink } from "react-router-dom";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../firebase/Config";
-import { getAuth, signOut } from "firebase/auth";
 
 const Header = () => {
-  const [user, loading, error] = useAuthState(auth);
-
   return (
     <div
       style={{
         display: "flex",
         justifyContent: "space-around",
         alignItems: "center",
+        padding:"6px"
       }}
     >
-      {user && (
-        <div>
-          <NavLink to="/html">Html</NavLink>
-          <NavLink
-            to="/css"
-            style={{ paddingLeft: "20px", paddingRight: "20px" }}
-          >
-            Css
-          </NavLink>
-          <NavLink to="/js">Js</NavLink>
-          <NavLink
-            style={{ paddingLeft: "20px" }}
-            onClick={() => {
-              const auth = getAuth();
-              signOut(auth)
-                .then(() => {
-                  // Sign-out successful.
-                })
-                .catch((error) => {
-                  // An error happened.
-                });
-            }}
-          >
-            sign-out
-          </NavLink>
-        </div>
-      )}
       <h1>web.dev</h1>
-
+      <button
+        style={{
+          width: "100px",
+          height: "30px",
+          borderRadius: "6px",
+          border: "none",
+        }}
+      >
+        Toggle Theme
+      </button>
       <nav>
-        {/* <NavLink to="/html">Html</NavLink>
+        <NavLink to="/html">Html</NavLink>
         <NavLink
           to="/css"
-          style={{ paddingLeft: "20px", paddingRight: "20px" }}
+          style={{ paddingLeft: "30px", paddingRight: "30px" }}
         >
           Css
         </NavLink>
-        <NavLink to="/js" >Js</NavLink> */}
-        {!user && (
-          <>
-            <NavLink
-              to="/signin"
-              style={{ paddingLeft: "20px", paddingRight: "20px" }}
-              
-            >
-              signin
-            </NavLink>
-            <NavLink to="/signup">signup</NavLink>{" "}
-          </>
-        )}
+        <NavLink to="/js">JS</NavLink>
+        {/* <>
+          <NavLink
+            to="/signin"
+            style={{ paddingLeft: "20px", paddingRight: "20px" }}>
+            signin
+          </NavLink>
+          <NavLink to="/signup">signup</NavLink>
+        </> */}
       </nav>
+  
     </div>
   );
 };
