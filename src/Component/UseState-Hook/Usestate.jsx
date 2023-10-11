@@ -20,11 +20,11 @@ const Usestate = () => {
         <button onClick={change}>Alter</button>
       </div>
       <div>
-        <h1>My name is {age}</h1>
+        <h1>My age is {age}</h1>
         <button onClick={change2}>Alter</button>
       </div>
       <div>
-        <h1>My name is {count}</h1>
+        <h1>count is {count}</h1>
         <button
           onClick={() => {
             setcount(count + 1);

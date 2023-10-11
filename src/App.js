@@ -1,12 +1,15 @@
 // import Routing from "./Routing/index.jsx";
 
-import Usestate from "./Component/UseState-Hook/Usestate";
+import Usestate from "./Component/UseState/Usestate";
+
+
 
 function App() {
   return (
     <div className="App">
       {/* <Routing /> */}
-      <Usestate/>
+
+     <Usestate/>
     </div>
   );
 }
