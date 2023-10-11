@@ -1,11 +1,12 @@
+import React from 'react';
 
-const Home = () => {
+const HomePage = () => {
+
   return (
-    <div style={{height:"460px", textAlign:"center",paddingTop:"20px"}}>
-      <h1>Home Page</h1>
-     
+    <div style={{ height: '100vh', textAlign: 'center', paddingTop: '20px' }}>
+      <h1>Home page</h1>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default HomePage;
