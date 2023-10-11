@@ -16,6 +16,7 @@ const Routing= () => {
               <Route path="/html" element={<Html/>}/> 
               <Route path="/css" element={<Css/>}/> 
               <Route path="/js" element={<Js/>}/> 
+              {/* <Route path="*" element={<h1>Page Not found</h1>}/>  */}
              
             </Route>
             
